@@ -162,13 +162,7 @@ video.object-cover {
   mix-blend-mode:luminosity;
 
 } */
-.icon-filter {
-  /* remove most color and push contrast down on warm/red tones */
-  /* filter: invert(100%) brightness(100%); */
-  
-  /* in case you want a stronger, color-targeted approach, uncomment mix-blend-mode */
 
-}
 
 /* Optional overlay to darken further while keeping foreground readable */
 .bg-video-overlay {
