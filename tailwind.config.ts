@@ -2,7 +2,12 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -50,8 +55,7 @@ export default {
         },
       },
       fontFamily: {
-        primary: ["var(--font-primary)"],
-        display: ["var(--font-display)"],
+        outfit: ["Outfit", "sans-serif"],
       },
       spacing: {
         18: "4.5rem",

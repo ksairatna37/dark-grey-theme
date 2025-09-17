@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 /* Landio Dark Theme Design System */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+
 
 @layer base {
   :root {
@@ -50,8 +52,8 @@
     --shadow-subtle: 0 2px 20px hsl(218, 23%, 2% / 0.5);
     
     /* Typography */
-    --font-primary: 'Inter', system-ui, sans-serif;
-    --font-display: 'Playfair Display', serif;
+    --font-primary: "Outfit", sans-serif;
+    --font-display: "Outfit", sans-serif;
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -74,6 +76,7 @@
 
   html {
     scroll-behavior: smooth;
+    height: 100%;
   }
 
   body {
@@ -81,6 +84,9 @@
     color: hsl(var(--foreground));
     font-family: var(--font-primary);
     min-height: 100vh;
+    height: 100%;
+    margin: 0;
+    padding: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -123,4 +129,52 @@
       radial-gradient(circle at 1px 1px, hsl(var(--foreground) / 0.02) 1px, transparent 0);
     background-size: 40px 40px;
   }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.group:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  padding: 2px;
+  background: linear-gradient(90deg, #524026, #ffffff, #524026);
+  background-size: 200% 100%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: shimmer 5s infinite linear;
+}
+
+/* Ensure full-bleed video covers viewport and no unexpected spacing */
+video.object-cover {
+  display: block;
+}
+
+/* Video filter: desaturate and darken reds so red elements appear black */
+/* .bg-video-filter {
+  filter: grayscale(100%) contrast(80%) brightness(45%) blur(1.5px);
+  
+  mix-blend-mode:luminosity;
+
+} */
+.icon-filter {
+  /* remove most color and push contrast down on warm/red tones */
+  /* filter: invert(100%) brightness(100%); */
+  
+  /* in case you want a stronger, color-targeted approach, uncomment mix-blend-mode */
+
+}
+
+/* Optional overlay to darken further while keeping foreground readable */
+.bg-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+  pointer-events: none;
+  z-index: -5;
 }
