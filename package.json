@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://ksairatna37.github.io/dark-grey-theme/",
+  "homepage": "https://lighter.farm/",
   "scripts": {
   "dev": "vite",
   "build": "vite build",
